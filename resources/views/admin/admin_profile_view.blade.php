@@ -18,9 +18,9 @@
                                 <img style="object-fit: cover;  width: 100px;
                                 height: 100px;
                                 border-radius: 50%;object-position: center"
-                                                            id="showImage" class="wd-100 rounded-circle"
-                                                            src="{{ !empty($profileData->photo) ? url('upload/admin_images/' . $profileData->photo) : url('upload/no_image.jpg') }}"
-                                                            alt="profile">
+                                    class="wd-100 rounded-circle"
+                                    src="{{ !empty($profileData->photo) ? url('upload/admin_images/' . $profileData->photo) : url('upload/no_image.jpg') }}"
+                                    alt="profile">
                                 <span class="h4 ms-3">{{ $profileData->username }}</span>
                             </div>
 
@@ -108,18 +108,9 @@
                                         id="formFile">
                                 </div>
                                 <div class="mb-3">
-                                    <style>
-                                        .round-image {
-                                            width: 100px;
-                                            height: 100px;
-                                            border-radius: 50%;
-                                            object-fit: cover;
-                                        }
-                                    </style>
 
-                                    <img style="object-fit: cover;  width: 100px;
-            height: 100px;
-            border-radius: 50%;object-position: center"
+
+                                    <img style="object-fit: cover;  width: 100px; height: 100px; border-radius: 50%;object-position: center"
                                         id="showImage" class="wd-80 rounded-circle"
                                         src="{{ !empty($profileData->photo) ? url('upload/admin_images/' . $profileData->photo) : url('upload/no_image.jpg') }}"
                                         alt="profile">
