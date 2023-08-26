@@ -56,7 +56,7 @@ class AdminController extends Controller
 
         $data->save();
 
-        $notification = array('message' => 'profile update successfully', 'alert-type' => "success");
+        $notification = array('message' => 'admin profile update successfully', 'alert-type' => "success");
 
 
         return redirect()->back()->with($notification);
