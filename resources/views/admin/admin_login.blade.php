@@ -1,13 +1,5 @@
 <!DOCTYPE html>
-<!--
-Template Name: NobleUI - HTML Bootstrap 5 Admin Dashboard Template
-Author: NobleUI
-Website: https://www.nobleui.com
-Portfolio: https://themeforest.net/user/nobleui/portfolio
-Contact: nobleui123@gmail.com
-Purchase: https://1.envato.market/nobleui_admin
-License: For each use you must have a valid license purchased only from above link in order to legally use the theme for your project.
--->
+
 <html lang="en">
 
 <head>
@@ -19,16 +11,16 @@ License: For each use you must have a valid license purchased only from above li
     <meta name="keywords"
         content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
-    <title>Admin Login </title>
-
+    <title>Admin Login Page </title>
 
     <style type="text/css">
         .authlogin-side-wrapper {
             width: 100%;
             height: 100%;
-            background-image: url({{ asset('upload/login.png') }})
+            background-image: url({{ asset('upload/login.png') }});
         }
     </style>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,6 +45,11 @@ License: For each use you must have a valid license purchased only from above li
 
     <link rel="shortcut icon" href="{{ asset('backend/assets/images/favicon.png') }}" />
 
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+
+
+
+
 </head>
 
 <body>
@@ -72,19 +69,23 @@ License: For each use you must have a valid license purchased only from above li
                                 <div class="col-md-8 ps-md-0">
                                     <div class="auth-form-wrapper px-4 py-5">
                                         <a href="#"
-                                            class="noble-ui-logo logo-light d-block mb-2">PropertyListing<span>UI</span></a>
+                                            class="noble-ui-logo logo-light d-block mb-2">Easy<span>Learning </span></a>
                                         <h5 class="text-muted fw-normal mb-4">Welcome back! Log in to your account.</h5>
-                                        <form method="POST" action="{{ route('login') }}">
+
+
+                                        <form class="forms-sample" method="post" action="{{ route('login') }}">
                                             @csrf
+
                                             <div class="mb-3">
-                                                <label for="login" class="form-label">Name/Email/Phone</label>
-                                                <input type="login" class="form-control" id="login"
-                                                    placeholder="login" name='login'>
+                                                <label for="login" class="form-label">Email/Name/Phone </label>
+                                                <input type="text" name="login" class="form-control" id="login"
+                                                    placeholder="Email" autofocus>
                                             </div>
+
                                             <div class="mb-3">
-                                                <label for="password" class="form-label">Password</label>
+                                                <label for="userPassword" class="form-label">Password</label>
                                                 <input type="password" class="form-control" id="password"
-                                                    name='password' autocomplete="current-password"
+                                                    name="password" autocomplete="current-password"
                                                     placeholder="Password">
                                             </div>
                                             <div class="form-check mb-3">
@@ -94,14 +95,18 @@ License: For each use you must have a valid license purchased only from above li
                                                 </label>
                                             </div>
                                             <div>
+
                                                 <button type="submit"
                                                     class="btn btn-outline-primary btn-icon-text mb-2 mb-md-0">
                                                     Login
+
                                                 </button>
                                             </div>
                                             <a href="register.html" class="d-block mt-3 text-muted">Not a user? Sign
                                                 up</a>
                                         </form>
+
+
                                     </div>
                                 </div>
                             </div>
@@ -114,19 +119,44 @@ License: For each use you must have a valid license purchased only from above li
     </div>
 
     <!-- core:js -->
-    <script src="backend/assets/vendors/core/core.js"></script>
+    <script src="{{ asset('backend/assets/vendors/core/core.js') }}"></script>
     <!-- endinject -->
 
     <!-- Plugin js for this page -->
     <!-- End plugin js for this page -->
 
     <!-- inject:js -->
-    <script src="backend/assets/vendors/feather-icons/feather.min.js"></script>
-    <script src="backend/assets/js/template.js"></script>
+    <script src="{{ asset('backend/assets/vendors/feather-icons/feather.min.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/template.js') }}"></script>
     <!-- endinject -->
 
     <!-- Custom js for this page -->
     <!-- End custom js for this page -->
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script>
+        @if (Session::has('message'))
+            var type = "{{ Session::get('alert-type', 'info') }}"
+            switch (type) {
+                case 'info':
+                    toastr.info(" {{ Session::get('message') }} ");
+                    break;
+
+                case 'success':
+                    toastr.success(" {{ Session::get('message') }} ");
+                    break;
+
+                case 'warning':
+                    toastr.warning(" {{ Session::get('message') }} ");
+                    break;
+
+                case 'error':
+                    toastr.error(" {{ Session::get('message') }} ");
+                    break;
+            }
+        @endif
+    </script>
 
 </body>
 

@@ -44,7 +44,7 @@
                                         @csrf
                                         <div class="form-group">
                                             <label>Email/name/phone</label>
-                                            <input type="text" name="login" required="" id="login">
+                                            <input type="text" name="login" required="" id="login" autofocus>
                                         </div>
 
                                         <div class="form-group">
